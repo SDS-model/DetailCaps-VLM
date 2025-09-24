@@ -14,7 +14,7 @@ Our code is modified based on the TinyLLaVA framework. Please refer to [TinyLLaV
 
 1.Data Preparation
 
-Our dataset mainly consists of two parts: pre-training and fine-tuning. The pre-training dataset [uses blip_laion_cc_sbu_558k](https://huggingface.co/datasets/liuhaotian/LLaVA-Pretrain/tree/main), and the fine-tuning dataset uses our self-built transmission line defect subtitle dataset. If you fine-tune your own model, please build it according to the format of the LLaVA dataset when building the fine-tuning dataset. If you need our transmission line dataset, please contact us privately.
+Our dataset mainly consists of two parts: pre-training and fine-tuning. The pre-training dataset uses [blip_laion_cc_sbu_558k](https://huggingface.co/datasets/liuhaotian/LLaVA-Pretrain/tree/main), and the fine-tuning dataset uses our self-built transmission line defect subtitle dataset. If you fine-tune your own model, please build it according to the format of the LLaVA dataset when building the fine-tuning dataset. If you need our transmission line dataset, please contact us privately.
 
 2.Train
 
