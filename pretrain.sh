@@ -1,0 +1,44 @@
+#!/bin/bash
+
+
+deepspeed --include localhost:0 --master_port 29501 tinyllava/train/train.py \
+    --deepspeed ./scripts/zero3.json \
+    --data_path  \
+    --image_folder \
+    --is_multimodal True \
+    --conv_version pretrain \
+    --model_name_or_path ./phi-2 \
+    --vision_tower ./clip-vit-large-patch14-336 \
+    --vision_tower2 "" \
+    --connector_type mlp2x_gelu \
+    --mm_vision_select_layer -2 \
+    --image_aspect_ratio square \
+    --attn_implementation flash_attention_2 \
+    --fp16 True \
+    --training_recipe common \
+    --tune_type_llm frozen \
+    --tune_type_vision_tower full \
+    --tune_vision_tower_from_layer 0 \
+    --tune_type_connector frozen \
+    --output_dir ./model \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 16 \
+    --per_device_eval_batch_size 4 \
+    --gradient_accumulation_steps 32 \
+    --evaluation_strategy "no" \
+    --save_strategy "steps" \
+    --save_steps 24000 \
+    --save_total_limit 1 \
+    --learning_rate 1e-3 \
+    --weight_decay 0. \
+    --warmup_ratio 0.03 \
+    --lr_scheduler_type "cosine" \
+    --logging_steps 1 \
+    --tf32 False \
+    --model_max_length 3072 \
+    --gradient_checkpointing True \
+    --dataloader_num_workers 8 \
+    --lazy_preprocess True \
+    --report_to tensorboard \
+    --tokenizer_use_fast False \
+    --run_name tiny-llava-phi-2-siglip-so400m-patch14-384-base-pretrain
