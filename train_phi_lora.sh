@@ -1,0 +1,19 @@
+#DATA_PATH=/home/ai/data/llava/dataset/text_files/blip_laion_cc_sbu_558k.json
+FINETUNE_DATA_PATH=
+#IMAGE_PATH=/home/ai/data/llava/dataset/llava/llava_pretrain/images
+FINETUNE_IMAGE_PATH=
+
+LLM_VERSION=./phi-2
+VT_VERSION=./clip-vit-large-patch14-336
+VT_VERSION2=""
+CN_VERSION=mlp2x_gelu
+CONV_VERSION=phi
+VERSION=base-lora-zero2-r128
+PRETRAIN_TRAIN_RECIPE=common
+FINETUNE_TRAIN_RECIPE=lora
+MODEL_MAX_LENGTH=3072
+
+
+#bash scripts/train/pretrain.sh "$DATA_PATH" "$IMAGE_PATH" "$LLM_VERSION" "$VT_VERSION" "$VT_VERSION2" "$CN_VERSION" "$VERSION" "$PRETRAIN_TRAIN_RECIPE" "$MODEL_MAX_LENGTH"
+bash ./train/finetune.sh "$FINETUNE_DATA_PATH" "$FINETUNE_IMAGE_PATH" "$LLM_VERSION" "$VT_VERSION" "$VT_VERSION2" "$CN_VERSION" "$CONV_VERSION" "$VERSION" "$FINETUNE_TRAIN_RECIPE" "$MODEL_MAX_LENGTH"
+
