@@ -44,6 +44,7 @@ For the object detection function, we use the [Deformable-DETR](https://github.c
 
 ## Acknowledgement
 We would like to thank Junlong Jia, Ying Hu, Xi Weng and others for building the [TinyLLaVA](https://github.com/TinyLLaVA/TinyLLaVA_Factory) framework.
+
 We would like to thank Xizhou Zhu, Weijie Su, Lewei Lu and others for their work on [Deformable-DETR](https://github.com/fundamentalvision/Deformable-DETR).
 
 ## Community efforts
