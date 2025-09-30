@@ -30,8 +30,6 @@ Finetune
 bash train_phi_lora.sh
 ```
 
-Note:The innovative framework mentioned in our paper is concentrated in the tinyllava\model\vision_tower\base.py file
-
 3.Evaluation
 
 During the evaluation phase, we used classic image captioning evaluation metrics including BLEU-n, CIDEr, ROUGE-L, and METEOR. Our evaluation code is in the evaluate file. Two files are required for each indicator in the evaluation folder. One is the real label set for the images to be evaluated and saved as a JSON file. The other is the image folder that needs to be inferred by the model. The model will infer each image in the image folder to obtain captions and then calculate the corresponding indicator score with the label file.Please refer to the evaluate file for details.
